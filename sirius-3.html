@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIRIUS CARGO | Ваш главный ориентир в логистике</title>
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0e0e10;
+            --bg-card: #161619;
+            --bg-light: #f5f5f7;
+            --accent-orange: #ff6b00;
+            --accent-glow: rgba(255, 107, 0, 0.4);
+            --text-main: #e2e2e3;
+            --text-dark: #121212;
+            --text-muted: #949499;
+            --border: rgba(255, 255, 255, 0.08); /* Делаем границы мягче и прозрачнее */
+            --grad: linear-gradient(135deg, #ff6b00 0%, #ff9e00 100%);
+        }
+
+        body { background-color: var(--bg-dark); background: radial-gradient(circle at 50% 0%, #1a1a1e 0%, #0e0e10 100%); color: var(--text-main); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.5; font-size: 18px; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* --- ШАПКА И ТЮМЕНЬ --- */
+        header { padding: 32px 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
+        .logo { font-weight: 800; font-size: 28px; letter-spacing: -1px; text-transform: uppercase; text-decoration: none; color: #fff; }
+        .logo span { color: var(--accent-orange); }
+
+        .status-tag { font-size: 12px; color: #fff; font-weight: 700; display: flex; align-items: center; gap: 10px; text-transform: uppercase; letter-spacing: 0.1em; }
+        .coordinates { font-family: monospace; color: var(--text-muted); font-weight: 400; letter-spacing: 0; text-shadow: 0 0 5px rgba(255, 107, 0, 0.2); }
+        
+        .dot { 
+            width: 8px; height: 8px; background: var(--accent-orange); border-radius: 50%; 
+            box-shadow: 0 0 10px var(--accent-orange); 
+            animation: pulse-orange 2s infinite;
+        }
+        @keyframes pulse-orange {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* --- ГЛАВНЫЙ ЗАГОЛОВОК H1 --- */
+        h1 { font-size: clamp(40px, 8vw, 72px); font-weight: 800; letter-spacing: -0.04em; margin-bottom: 24px; line-height: 1.1; color: #fff; text-align: center; }
+        
+        .h1-brand-group {
+            display: inline-block;
+            filter: drop-shadow(0 0 15px var(--accent-glow));
+            transition: filter 0.3s ease, transform 0.3s ease;
+        }
+        .h1-brand-group:hover {
+            filter: drop-shadow(0 0 25px var(--accent-orange));
+            transform: translateY(-2px);
+        }
+        .h1-sirius { color: #ffffff; }
+        .h1-cargo {
+            background: var(--grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+        }
+        .h1-slogan {
+            display: block; 
+            font-size: 0.6em; 
+            font-weight: 400;
+            color: var(--text-muted);
+            margin-top: 15px;
+            letter-spacing: normal;
+        }
+
+        /*Заголовки H2*/
+        /* Единый стиль для всех заголовков второго уровня */
+        h2 {
+            font-size: clamp(32px, 5vw, 48px); /* Адаптивный размер */
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 40px;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+            position: relative;
+            display: block;
+            width: 100%;
+        }
+
+        /* Добавим стильную оранжевую черточку под каждым заголовком для акцента */
+        h2::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--grad);
+            margin: 16px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Специфическая коррекция цвета для светлой секции TECH */
+        .tech-section h2 {
+            color: var(--bg-dark);
+        }
+
+        .tech-section h2::after {
+            background: var(--bg-dark); /* В светлой секции черточка будет темной для контраста */
+        }
+
+        /* Цвет для темных секций */
+        section:not(.tech-section) h2 {
+            color: #fff;
+        }
+
+        section > .container > p, .geo-block p {
+            text-align: center;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 60px;
+        }
+
+
+        /* --- КНОПКИ И ИНПУТЫ --- */
+        .btn-main { 
+            background: var(--grad); color: #000; border: none; padding: 22px 48px; border-radius: 14px; 
+            font-weight: 800; font-size: 20px; cursor: pointer; transition: all 0.2s ease; text-decoration: none; display: inline-block;
+        }
+        .btn-main:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 15px 30px var(--accent-glow); }
+
+        .hero { padding: 100px 0 60px; text-align: center; }
+        .hero p { color: var(--text-muted); font-size: 24px; max-width: 850px; margin: 0 auto 48px; }
+
+        .main-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 24px; padding: 48px; box-shadow: 0 40px 80px rgba(0,0,0,0.5); text-align: left; transition: 0.3s; }
+        .main-card:hover { border-color: var(--accent-orange); }
+        
+        .calc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px; margin-bottom: 48px; }
+        .input-box label { color: var(--accent-orange); font-size: 13px; font-weight: 800; text-transform: uppercase; display: block; margin-bottom: 12px; }
+        input, select { width: 100%; box-sizing: border-box; background: #1c1c1f; border: 1px solid var(--border); color: #fff; padding: 18px; border-radius: 12px; font-size: 18px; font-family: inherit; }
+
+        /* --- СТАТИСТИКА --- */
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 60px 0; }
+        .stat-item { border-left: 3px solid var(--border); padding-left: 24px; transition: 0.3s; }
+        .stat-item:hover { border-color: var(--accent-orange); }
+        .stat-item b { font-size: 48px; color: #fff; display: block; }
+        .stat-item span { font-size: 16px; color: var(--text-muted); text-transform: uppercase; font-weight: 600; }
+
+        /* --- ТЕХНОЛОГИИ (СВЕТЛЫЙ БЛОК) --- */
+        .tech-section { background: var(--bg-light); color: var(--text-dark); padding: 120px 0; border-radius: 60px 60px 0 0; }
+        .tech-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; margin-top: 60px; }
+        .tech-card { position: relative; padding: 32px; border-radius: 20px; transition: 0.3s; background: rgba(0,0,0,0.03); }
+        .tech-card::before { content: ""; position: absolute; top: 0; left: 0; width: 0; height: 4px; background: var(--grad); transition: 0.4s; }
+        .tech-card:hover::before { width: 100%; }
+        .tech-num { color: var(--accent-orange); font-weight: 900; font-size: 40px; display: block; margin-bottom: 16px; }
+
+        /* --- УСЛУГИ (БЕЛЫЕ КАРТОЧКИ) --- */
+        .services-section {
+            background: var(--bg-dark); /* Возвращаем темный фон */
+            color: var(--text-main);
+            padding: 120px 0;
+            /* Закругление углов */
+            border-radius: 60px 60px 0 0;
+            /* Наслоение на предыдущий блок */
+            margin-top: -60px; 
+            position: relative;
+            z-index: 10;
+            border-top: 1px solid var(--border); /* Легкая граница, чтобы подчеркнуть стык */
+        }
+
+        /* Возвращаем белый цвет заголовкам внутри */
+        .services-section h2 {
+            color: #fff;
+        }
+
+        .services-section h2::after {
+            background: var(--grad); /* Возвращаем оранжевую черточку */
+        }
+
+        /* Настройка карточек для темного фона (если они были белыми) */
+        .services-section .service-card {
+            background: var(--bg-card);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+        }
+
+        .services-section .service-card h4 {
+            color: #000000;
+        }
+
+        .services-section .service-card p {
+            color: var(--text-muted);
+        }
+
+
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 64px; }
+        .service-card { background: #fff; color: #000; padding: 56px 40px; border-radius: 32px; transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); border: 2px solid transparent; }
+        .service-card:hover { transform: translateY(-20px); border-color: var(--accent-orange); box-shadow: 0 40px 80px rgba(0,0,0,0.3); }
+        .service-card span { font-size: 64px; display: block; margin-bottom: 32px; }
+
+        /* --- ПАРТНЕРЫ --- */
+        .partners-section { 
+            padding: 100px 0 0; /* Верхний отступ 100px, по бокам 0, нижний 0 */
+            border-top: 1px solid var(--border); 
+        }
+
+
+        .partners-overflow {
+            width: 100%;
+            overflow: hidden;
+            padding: 40px 0; /* Увеличили отступ от заголовка */
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .partners-grid {
+            display: flex;
+            align-items: center;
+            gap: 100px; /* Расстояние между брендами */
+            width: max-content;
+            animation: marquee 30s linear infinite;
+        }
+
+        /* Остановка при наведении для удобства чтения */
+        .partners-overflow:hover .partners-grid {
+            animation-play-state: paused;
+        }
+
+        .partners-grid div {
+            font-weight: 900;
+            font-size: 32px; /* Чуть увеличили размер для солидности */
+            color: #fff;
+            white-space: nowrap;
+            opacity: 0.4;
+            transition: 0.3s;
+            letter-spacing: 0.1em;
+        }
+
+        .partners-grid div:hover {
+            opacity: 1;
+            color: var(--accent-orange);
+            transform: scale(1.1);
+        }
+
+        /* Ключевые кадры для бесконечного движения */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } /* Сдвигаем на половину длины дублированного списка */
+        }
+
+        /* Плавное затухание по бокам (эффект исчезновения) */
+        .partners-overflow::before, .partners-overflow::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 150px;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .partners-overflow::before {
+            left: 0;
+            background: linear-gradient(to right, var(--bg-dark), transparent);
+        }
+        .partners-overflow::after {
+            right: 0;
+            background: linear-gradient(to left, var(--bg-dark), transparent);
+        }
+
+
+        /* --- ГЕОГРАФИЯ (СЕТКА 3 КОЛОНКИ) --- */
+        .geo-block { background: rgba(255,255,255,0.03); border: 1px solid var(--border); padding: 80px 0; border-radius: 48px; margin: 60px 0; text-align: center; }
+        .geo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; margin-top: 48px; }
+        .geo-val {
+            color: var(--accent-orange);
+            font-size: 40px; /* Установили 40px */
+            font-weight: 800;
+            display: block;
+            margin-bottom: 12px;
+            line-height: 1.1; /* Плотно прижимаем строку к строке при переносе */
+        }
+
+        /* --- FAQ --- */
+            .faq-item {
+    border-bottom: 1px solid var(--border);
+    padding: 30px 0;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Плавность для всех изменений */
+    position: relative;
+}
+
+/* Эффект при наведении на весь блок */
+.faq-item:hover {
+    padding-left: 15px; /* Легкое смещение вправо */
+}
+
+.faq-item:hover .faq-question span {
+    color: var(--accent-orange); /* Текст становится оранжевым */
+}
+
+.faq-item:hover .faq-plus {
+    transform: scale(1.2); /* Плюс немного увеличивается */
+    text-shadow: 0 0 15px var(--accent-glow); /* Добавляем неоновое свечение */
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--text-muted);
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Стили для активного (раскрытого) состояния */
+.faq-item.active {
+    background: rgba(255, 107, 0, 0.03); /* Очень легкий оранжевый фон у раскрытого вопроса */
+    padding-left: 15px;
+    border-bottom-color: var(--accent-orange);
+}
+
+.faq-item.active .faq-answer {
+    max-height: 300px;
+    margin-top: 20px;
+    padding-bottom: 10px;
+}
+
+.faq-item.active .faq-question {
+    color: var(--accent-orange);
+}
+
+.faq-plus {
+    transition: all 0.3s ease;
+    font-size: 32px;
+    color: var(--accent-orange);
+    display: inline-block;
+}
+
+
+                .faq-item:hover { color: var(--accent-orange); padding-left: 20px; }
+
+                /* --- FOOTER --- */
+                footer { background: #050506; padding: 100px 0 60px; border-top: 1px solid var(--border); }
+                .footer-grid { 
+            display: grid; 
+            grid-template-columns: 2fr 1fr; /* Было 2fr 1fr 1fr */
+            gap: 64px; 
+        }
+
+        @media (max-width: 900px) {
+            .footer-grid, .calc-grid, .stats-grid, .tech-grid, .services-grid, .geo-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+
+    <style>
+        /* Стили СФЕРЫ /  Контейнер для относительного позиционирования шара */
+       /* Контейнер-обертка */
+    .geo-section-wrapper {
+        position: relative;
+        padding: 100px 0;
+        /* Создаем новый контекст наслоения, чтобы z-index: -1 не уходил за body */
+        isolation: isolate; 
+        overflow: visible;
+    }
+
+    /* Насыщенный светящийся шар */
+    .geo-glow-sphere {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        /* Сдвигаем строго в центр */
+        transform: translate(-50%, -50%);
+        
+        /* Увеличиваем физический размер */
+        width: 900px;  
+        height: 900px;
+        
+        /* Делаем очень мощный градиент */
+        background: radial-gradient(circle, 
+            rgba(255, 107, 0, 0.9) 0%, 
+            rgba(255, 107, 0, 0.5) 40%, 
+            rgba(255, 107, 0, 0) 70%
+        );
+        
+        border-radius: 50%;
+        filter: blur(50px); /* Уменьшил блюр, чтобы ядро было четче */
+        
+        /* Слой -1 относительно wrapper, но выше фона body */
+        z-index: -1; 
+        
+        pointer-events: none;
+        opacity: 0.8; /* Высокая прозрачность */
+        
+        /* Анимация */
+        animation: sphere-pulse 8s infinite ease-in-out;
+    }
+
+    /* Сам блок с контентом */
+    .geo-block {
+        position: relative;
+        z-index: 2;
+        background: rgb(24 24 24 / 35%) !important;
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 107, 0, 0.4);
+        box-shadow: 0 0 50px rgba(255, 107, 0, 0.1);
+    }
+
+    @keyframes sphere-pulse {
+        0%, 100% { 
+            transform: translate(-50%, -50%) scale(1); 
+            opacity: 0.6; 
+        }
+        50% { 
+            transform: translate(-50%, -50%) scale(1.15); 
+            opacity: 0.9; 
+        }
+    }
+    </style>
+    <style>
+        /* Акцентная плашка для блока услуг */
+        .heavy-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(255, 107, 0, 0.1);
+            border: 1px solid var(--accent-orange);
+            border-radius: 100px;
+            color: var(--accent-orange);
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Контейнер для центрирования шапки секции */
+        .services-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+    </style>
+
+    <style>
+        /* БЛОК ОБРАТНОЙ СВЯЗИ */
+        .contact-section {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 40px;
+            padding: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Декоративное свечение в углу формы */
+        .contact-wrapper::after {
+            content: "";
+            position: absolute;
+            bottom: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: var(--accent-glow);
+            filter: blur(100px);
+            z-index: 0;
+        }
+
+        .contact-info h3 {
+            text-align: left;
+            margin-top: 0;
+            margin-bottom: 24px;
+            font-size: 40px;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -0.02em;
+            position: relative;
+            display: block;
+            text-transform: uppercase;
+        }
+
+        /* Специфическая черточка для h3 в контактах */
+        .contact-info h3::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--grad);
+            margin: 16px 0 0; /* Сдвиг влево */
+            border-radius: 2px;
+        }
+
+        .contact-info p {
+            text-align: left;
+            margin: 0 0 40px;
+            font-size: 20px;
+            color: var(--text-muted);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--accent-orange);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            letter-spacing: 0.1em;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            background: #1c1c1f;
+            border: 1px solid var(--border);
+            padding: 16px;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-orange);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        .contact-form {
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 900px) {
+            .contact-wrapper { grid-template-columns: 1fr; padding: 32px; }
+        }
+
+    </style>
+
+    <style>
+        /*Созвездия*/
+        /* Контейнер для звездного фона внутри секции */
+        .constellation-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+/* Сами звезды */
+.star {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    opacity: 0;
+    /* Усиливаем свечение вокруг каждой звезды */
+    box-shadow: 0 0 6px 1px rgba(255, 255, 255, 0.9); 
+    animation: twinkle infinite ease-in-out;
+}
+
+/* Настраиваем яркость мерцания */
+@keyframes twinkle {
+    0%, 100% { 
+        opacity: 0.2; /* Минимальная яркость (звезда не исчезает совсем) */
+        transform: scale(0.9); 
+    }
+    50% { 
+        opacity: 0.9; /* Максимальная яркость в пике мерцания */
+        transform: scale(1.2); 
+        box-shadow: 0 0 10px 2px rgba(255, 255, 255, 1); /* Вспышка свечения */
+    }
+}
+
+
+/* Делаем секцию услуг относительной для позиционирования звезд */
+.services-section {
+    position: relative;
+    overflow: hidden; /* Чтобы звезды не вылетали за границы */
+}
+
+/* Поднимаем контент над звездами */
+.services-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+    </style>
+</head>
+<body>
+
+    <header class="container">
+        <a href="#" class="logo">SIRIUS <span>CARGO</span></a>
+        <div style="display: flex; align-items: center; gap: 40px;">
+            <div class="status-tag">
+                <span class="dot"></span> 
+                ТЮМЕНЬ <span class="coordinates">57.1522° N, 65.5272° E</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero container">
+            <h1>
+                <span class="h1-brand-group">
+                    <span class="h1-sirius">SIRIUS</span> 
+                    <span class="h1-cargo">CARGO</span>
+                </span> 
+                <span class="h1-slogan">— ваш главный ориентир в логистике</span>
+            </h1>
+            <p>Перевозим грузы по всей России с точностью до минуты.<br> Находим решение, когда другие ищут машины.</p>
+            
+            <div class="main-card">
+                <div class="calc-grid">
+                    <div class="input-box"><label>Откуда</label><input type="text" value="Москва"></div>
+                    <div class="input-box"><label>Куда</label><input type="text" value="Владивосток"></div>
+                    <div class="input-box"><label>Вес (т)</label><input type="number" value="20"></div>
+                    <div class="input-box"><label>Кузов</label><select><option>Еврофура (Тент)</option><option>Рефрижератор</option></select></div>
+                </div>
+                <div class="price-row" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); padding-top: 40px; flex-wrap: wrap; gap: 32px;">
+                    <div><span style="color: var(--text-muted); font-size: 16px; font-weight: 600;">ОРИЕНТИРОВОЧНАЯ СТОИМОСТЬ</span><div style="font-size: 48px; font-weight: 800; color: #fff;">9 000 ₽</div></div>
+                    <button class="btn-main">Забронировать машину</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STATS -->
+        <div class="container stats-grid">
+            <div class="stat-item"><b>150+</b><span>Собственных авто</span></div>
+            <div class="stat-item"><b>12 лет</b><span>Опыт на рынке</span></div>
+            <div class="stat-item"><b style="color: var(--accent-orange);">99.8%</b><span>Точность доставки</span></div>
+            <div class="stat-item"><b>24/7</b><span>Поддержка клиентов</span></div>
+        </div>
+
+        <!-- TECH -->
+        <section class="tech-section">
+            <div class="container">
+                <h2>Технология доставки 2026</h2>
+                <p style="font-size: 22px; color: #555; max-width: 800px;">Мы внедрили цифровые стандарты SIRIUS CARGO, чтобы вы не тратили время на звонки.</p>
+                <div class="tech-grid">
+                    <div class="tech-card"><span class="tech-num">01</span><h4>Мгновенная заявка</h4><p>Наша CRM обрабатывает запрос и подбирает авто за 180 секунд.</p></div>
+                    <div class="tech-card"><span class="tech-num">02</span><h4>Электронная ТРН</h4><p>Никакой почты. Документы приходят в ЭДО сразу после загрузки.</p></div>
+                    <div class="tech-card"><span class="tech-num">03</span><h4>Контроль пути</h4><p>Датчики GPS, открытия дверей и температуры в реальном времени.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section class="services-section" id="services">
+    <!-- Холст для звездного неба -->
+    <canvas id="constellationCanvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;"></canvas>
+
+            <div class="container" style="position: relative; z-index: 2;">
+                <div class="services-header">
+                    <div class="heavy-badge">Экспертиза в Heavy Cargo</div>
+                    <h2>Сложная логистика — наш профиль</h2>
+                    <p>Мы беремся за задачи, от которых отказываются другие: от магистральных труб для нефтегазового сектора до высокотехнологичных производственных линий.</p>
+                </div>
+
+                <div class="services-grid">
+                    <!-- Карточка 1 -->
+                    <div class="service-card" style="background: var(--bg-light);">
+                        <span>🏗️</span>
+                        <h4>Негабарит и ТЭК</h4>
+                        <p>Специализированная перевозка труб большого диаметра, буровых установок и спецтехники. Полное сопровождение и спецразрешения.</p>
+                    </div>
+
+                    <!-- Карточка 2 -->
+                    <div class="service-card" style="background: var(--bg-light);">
+                        <span>⚙️</span>
+                        <h4>Промышленный сектор</h4>
+                        <p>Транспортировка дорогостоящих станков, серверных стоек и медицинских систем. Гарантируем сохранность электроники.</p>
+                    </div>
+
+                    <!-- Карточка 3 -->
+                    <div class="service-card" style="background: var(--bg-light);">
+                        <span>🛒</span>
+                        <h4>Ритейл и FMCG</h4>
+                        <p>Работаем со всеми РЦ федеральных торговых сетей. Знаем специфику «Магнита», «X5 Group» и «Ozon».</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PARTNERS -->
+        <section class="container partners-section">
+            <h2>Нам доверяют лидеры</h2>
+            
+            <div class="partners-overflow">
+                <div class="partners-grid">
+                    <!-- Основной список -->
+                    <div>ГАЗПРОМ</div><div>X5 GROUP</div><div>СИБУР</div>
+                    <div>OZON</div><div>МАГНИТ</div><div>МИРАТОРГ</div>
+                    
+                    <!-- Дубликат списка для эффекта бесшовности -->
+                    <div>ГАЗПРОМ</div><div>X5 GROUP</div><div>СИБУР</div>
+                    <div>OZON</div><div>МАГНИТ</div><div>МИРАТОРГ</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GEO -->
+        <section class="geo-section-wrapper">
+            <!-- Тот самый светящийся шар -->
+            <div class="geo-glow-sphere"></div>
+
+            <div class="container">
+                <div class="geo-block">
+                    <div class="container">
+                        <h2>География перевозок</h2>
+                        <p style="font-size: 20px; color: var(--text-muted);">Доставка грузов по всей территории России и странам СНГ.</p>
+                        <div class="geo-grid">
+                            <div>
+                                <span class="geo-val">85+ <br>регионов</span>
+                                <span style="font-weight: 600; opacity: 0.7;">ОХВАТ ПО РФ</span>
+                            </div>
+                            <div>
+                                <span class="geo-val">500+ <br>рейсов</span>
+                                <span style="font-weight: 600; opacity: 0.7;">РЕГУЛЯРНЫЕ МАРШРУТЫ</span>
+                            </div>
+                            <div>
+                                <span class="geo-val">100% <br>гарантии</span>
+                                <span style="font-weight: 600; opacity: 0.7;">ГАРАНТИЯ ДОСТАВКИ</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="container" style="padding-bottom: 120px;">
+            <h2>Частые вопросы</h2>
+            
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">
+                    <span>Как застрахован мой груз?</span>
+                    <span class="faq-plus">+</span>
+                </div>
+                <div class="faq-answer">
+                    Все перевозки SIRIUS CARGO застрахованы на сумму до 10 000 000 ₽ по умолчанию. Для дорогостоящего оборудования и труб ТЭК возможно расширение страхового покрытия до полной инвойсной стоимости.
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">
+                    <span>Работаете ли вы с НДС?</span>
+                    <span class="faq-plus">+</span>
+                </div>
+                <div class="faq-answer">
+                    Да, мы работаем по общей системе налогообложения (ОСНО) с выделением НДС 20%. Все закрывающие документы предоставляются через системы ЭДО (Диадок, СБИС) в день выгрузки.
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">
+                    <span>Как быстро вы подаете машину под негабарит?</span>
+                    <span class="faq-plus">+</span>
+                </div>
+                <div class="faq-answer">
+                    Благодаря собственному парку тралов и трубовозов, подача под погрузку в Тюменской области и ХМАО осуществляется в течение 24 часов после подписания заявки.
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">
+                    <span>Оказываете ли вы услуги сопровождения?</span>
+                    <span class="faq-plus">+</span>
+                </div>
+                <div class="faq-answer">
+                    Да, при перевозке крупногабаритных грузов мы берем на себя получение разрешений в ГИБДД и, при необходимости, обеспечиваем машины прикрытия с проблесковыми маячками.
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">
+                    <span>Есть ли у вас температурный режим?</span>
+                    <span class="faq-plus">+</span>
+                </div>
+                <div class="faq-answer">
+                    Да, в нашем парке есть современные рефрижераторы с регистраторами температуры. Мы поставляем оборудование и химические компоненты, требующие строгого соблюдения режима от -20°C до +20°C.
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">
+                    <span>Как я могу отследить местоположение груза?</span>
+                    <span class="faq-plus">+</span>
+                </div>
+                <div class="faq-answer">
+                    Каждое транспортное средство оснащено датчиками ГЛОНАСС. Вы получаете ссылку на мониторинг в реальном времени или ежедневные отчеты от персонального менеджера.
+                </div>
+            </div>
+        </section>
+
+
+        <!-- CONTACT SECTION -->
+        <section class="contact-section container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Запросить детальный расчет</h3>
+                    <p>Получите коммерческое предложение на перевозку любой сложности в течение 15 минут. Наш эксперт предложит оптимальный маршрут и тип транспорта.</p>
+                    
+                    <div style="margin-top: 60px;">
+                        <div style="color: var(--accent-orange); font-weight: 800; font-size: 14px; margin-bottom: 10px;">ГОРЯЧАЯ ЛИНИЯ</div>
+                        <div style="font-size: 32px; font-weight: 800;">8 (800) 555-35-35</div>
+                        <p style="font-size: 16px; margin-top: 10px;">Диспетчерская служба 24/7 по всей России</p>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <div class="form-group">
+                        <label>Контактные данные</label>
+                        <input type="text" id="client_data" placeholder="Имя и телефон для связи">
+                    </div>
+                    <div class="form-group">
+                        <label>Детали перевозки</label>
+                        <textarea id="cargo_info" rows="4" placeholder="Тип груза, вес, маршрут (например: Трубы 1420мм, Тюмень — Сургут)"></textarea>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                        <!-- Кнопка Почты -->
+                        <button onclick="sendToMail()" class="btn-main" style="font-size: 16px; padding: 18px 10px;">
+                            📧 Почта
+                        </button>
+                        <!-- Кнопка Telegram -->
+                        <button onclick="sendToTG()" class="btn-main" style="background: transparent; border: 2px solid #0088cc; color: #0088cc; font-size: 16px; padding: 18px 10px;">
+                            ✈️ Telegram
+                        </button>
+                    </div>
+                    
+                    <p style="font-size: 12px; color: var(--text-muted); margin-top: 20px; text-align: center;">
+                        Выберите удобный способ отправки. Данные будут сформированы автоматически.
+                    </p>            
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+    <div class="container footer-grid">
+        <div>
+            <div class="logo" style="margin-bottom: 32px;">SIRIUS <span>CARGO</span></div>
+            <p style="font-size: 16px; color: var(--text-muted); line-height: 1.8;">
+                ООО «СИРИУС КАРГО»<br>
+                ИНН 7700000000 | ОГРН 123456789<br><br>
+                © 2026. Ваш надежный ориентир.
+            </p>
+        </div>
+        <div>
+            <h4 style="color: var(--accent-orange); font-size: 14px; text-transform: uppercase; margin-bottom: 24px;">Контакты</h4>
+            <p style="font-size: 18px; margin-bottom: 32px;">г. Москва, БЦ «Сити», офис 504</p>
+            <a href="tel:+78005553535" class="contact-link" style="color: #fff; text-decoration: none; font-size: 24px; font-weight: 700; display: block; margin-bottom: 10px;">+7 (800) 555-35-35</a>
+            <p style="color: var(--text-muted); font-size: 16px;">info@siriuscargo.ru</p>
+        </div>
+        <!-- Третью колонку с кнопкой просто удалили -->
+    </div>
+</footer>
+
+<script>
+    // скрипт для формы обратной связи
+        function getFormData() {
+            const data = document.getElementById('client_data').value || "Не указано";
+            const cargo = document.getElementById('cargo_info').value || "Не указано";
+            return { data, cargo };
+        }
+
+        function sendToMail() {
+            const { data, cargo } = getFormData();
+            const subject = encodeURIComponent("Запрос расчета: SIRIUS CARGO");
+            const body = encodeURIComponent("Клиент: " + data + "\nГруз: " + cargo);
+            window.location.href = "mailto:info@siriuscargo.ru?subject=" + subject + "&body=" + body;
+        }
+
+        function sendToTG() {
+            const { data, cargo } = getFormData();
+            const text = encodeURIComponent("🚀 *Новый запрос расчета*\n\n👤 *Клиент:* " + data + "\n📦 *Груз:* " + cargo);
+            // Замените 'sirius_cargo_bot' или имя профиля на ваше
+            window.open("https://t.me" + text, "_blank");
+        }
+    </script>
+
+    <script>
+        // звезды
+        function createStars() {
+            const starfield = document.getElementById('starfield');
+            const starCount = 100; // Количество звезд
+
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                // Случайный размер от 1 до 3 пикселей
+                const size = (Math.random() * 2.5 + 1.5) + 'px';
+                star.style.width = size;
+                star.style.height = size;
+                
+                // Случайная позиция
+                star.style.top = Math.random() * 100 + '%';
+                star.style.left = Math.random() * 100 + '%';
+                
+                // Случайная длительность мерцания от 2 до 7 секунд
+                star.style.setProperty('--duration', (Math.random() * 5 + 2) + 's');
+                star.style.animationDuration = (Math.random() * 5 + 2) + 's';
+                
+                // Случайная задержка начала, чтобы не мерцали одновременно
+                star.style.animationDelay = (Math.random() * 5) + 's';
+                
+                starfield.appendChild(star);
+            }
+        }
+
+        // Запускаем создание звезд при загрузке
+        document.addEventListener('DOMContentLoaded', createStars);
+    </script>
+
+
+<script>
+    // созвездия канвас
+    const canvas = document.getElementById('constellationCanvas');
+    const ctx = canvas.getContext('2d');
+
+    let stars = [];
+    const starCount = 120; // Оптимальное количество для созвездий
+    const connectionDist = 150; // Максимальная дистанция для линии
+
+    function resizeCanvas() {
+        const section = document.getElementById('services');
+        canvas.width = section.offsetWidth;
+        canvas.height = section.offsetHeight;
+    }
+
+    class Star {
+        constructor() {
+            this.init();
+        }
+
+        init() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 2 + 0.5;
+            this.opacity = Math.random();
+            this.speed = Math.random() * 0.01 + 0.005;
+            this.direction = Math.random() > 0.5 ? 1 : -1;
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+            ctx.fill();
+        }
+
+        update() {
+            this.opacity += this.speed * this.direction;
+            if (this.opacity >= 0.8 || this.opacity <= 0.1) {
+                this.direction *= -1;
+            }
+        }
+    }
+
+    function drawLines() {
+        for (let a = 0; a < stars.length; a++) {
+            for (let b = a + 1; b < stars.length; b++) {
+                const dx = stars[a].x - stars[b].x;
+                const dy = stars[a].y - stars[b].y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < connectionDist) {
+                    // Прозрачность линии зависит от расстояния и яркости обеих звезд
+                    const alpha = (1 - distance / connectionDist) * (stars[a].opacity * 0.3);
+                    ctx.beginPath();
+                    ctx.moveTo(stars[a].x, stars[a].y);
+                    ctx.lineTo(stars[b].x, stars[b].y);
+                    // Сделаем линии бледно-оранжевыми, как ты хотела ранее
+                    ctx.strokeStyle = `rgba(255, 107, 0, ${alpha})`;
+                    ctx.lineWidth = 0.8;
+                    ctx.stroke();
+                }
+            }
+        }
+    }
+
+    function initStars() {
+        stars = [];
+        for (let i = 0; i < starCount; i++) {
+            stars.push(new Star());
+        }
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Сначала рисуем линии (они будут под звездами)
+        drawLines();
+        
+        // Затем рисуем и обновляем звезды
+        stars.forEach(star => {
+            star.update();
+            star.draw();
+        });
+        
+        requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', () => {
+        resizeCanvas();
+        initStars();
+    });
+
+    resizeCanvas();
+    initStars();
+    animate();
+</script>
+
+
+
+</body>
+</html>
