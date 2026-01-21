@@ -1,0 +1,590 @@
+
+        :root {
+            --bg-dark: #0e0e10;
+            --bg-card: #161619;
+            --bg-light: #f5f5f7;
+            --accent-orange: #ff6b00;
+            --accent-glow: rgba(255, 107, 0, 0.4);
+            --text-main: #e2e2e3;
+            --text-dark: #121212;
+            --text-muted: #949499;
+            --border: rgba(255, 255, 255, 0.08); /* Делаем границы мягче и прозрачнее */
+            --grad: linear-gradient(135deg, #ff6b00 0%, #ff9e00 100%);
+        }
+
+        body { background-color: var(--bg-dark); background: radial-gradient(circle at 50% 0%, #1a1a1e 0%, #0e0e10 100%); color: var(--text-main); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.5; font-size: 18px; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* --- ШАПКА И ТЮМЕНЬ --- */
+        header { padding: 32px 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
+        .logo { font-weight: 800; font-size: 28px; letter-spacing: -1px; text-transform: uppercase; text-decoration: none; color: #fff; }
+        .logo span { color: var(--accent-orange); }
+
+        .status-tag { font-size: 12px; color: #fff; font-weight: 700; display: flex; align-items: center; gap: 10px; text-transform: uppercase; letter-spacing: 0.1em; }
+        .coordinates { font-family: monospace; color: var(--text-muted); font-weight: 400; letter-spacing: 0; text-shadow: 0 0 5px rgba(255, 107, 0, 0.2); }
+        
+        .dot { 
+            width: 8px; height: 8px; background: var(--accent-orange); border-radius: 50%; 
+            box-shadow: 0 0 10px var(--accent-orange); 
+            animation: pulse-orange 2s infinite;
+        }
+        @keyframes pulse-orange {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* --- ГЛАВНЫЙ ЗАГОЛОВОК H1 --- */
+        h1 { font-size: clamp(40px, 8vw, 72px); font-weight: 800; letter-spacing: -0.04em; margin-bottom: 24px; line-height: 1.1; color: #fff; text-align: center; }
+        
+        .h1-brand-group {
+            display: inline-block;
+            filter: drop-shadow(0 0 15px var(--accent-glow));
+            transition: filter 0.3s ease, transform 0.3s ease;
+        }
+        .h1-brand-group:hover {
+            filter: drop-shadow(0 0 25px var(--accent-orange));
+            transform: translateY(-2px);
+        }
+        .h1-sirius { color: #ffffff; }
+        .h1-cargo {
+            background: var(--grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+        }
+        .h1-slogan {
+            display: block; 
+            font-size: 0.6em; 
+            font-weight: 400;
+            color: var(--text-muted);
+            margin-top: 15px;
+            letter-spacing: normal;
+        }
+
+        /*Заголовки H2*/
+        /* Единый стиль для всех заголовков второго уровня */
+        h2 {
+            font-size: clamp(32px, 5vw, 48px); /* Адаптивный размер */
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 40px;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+            position: relative;
+            display: block;
+            width: 100%;
+        }
+
+        /* Добавим стильную оранжевую черточку под каждым заголовком для акцента */
+        h2::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--grad);
+            margin: 16px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Специфическая коррекция цвета для светлой секции TECH */
+        .tech-section h2 {
+            color: var(--bg-dark);
+        }
+
+        .tech-section h2::after {
+            background: var(--bg-dark); /* В светлой секции черточка будет темной для контраста */
+        }
+
+        /* Цвет для темных секций */
+        section:not(.tech-section) h2 {
+            color: #fff;
+        }
+
+        section > .container > p, .geo-block p {
+            text-align: center;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 60px;
+        }
+
+
+        /* --- КНОПКИ И ИНПУТЫ --- */
+        .btn-main { 
+            background: var(--grad); color: #000; border: none; padding: 22px 48px; border-radius: 14px; 
+            font-weight: 800; font-size: 20px; cursor: pointer; transition: all 0.2s ease; text-decoration: none; display: inline-block;
+        }
+        .btn-main:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 15px 30px var(--accent-glow); }
+
+        .hero { padding: 100px 0 60px; text-align: center; }
+        .hero p { color: var(--text-muted); font-size: 24px; max-width: 850px; margin: 0 auto 48px; }
+
+        .main-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 24px; padding: 48px; box-shadow: 0 40px 80px rgba(0,0,0,0.5); text-align: left; transition: 0.3s; }
+        .main-card:hover { border-color: var(--accent-orange); }
+        
+        .calc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px; margin-bottom: 48px; }
+        .input-box label { color: var(--accent-orange); font-size: 13px; font-weight: 800; text-transform: uppercase; display: block; margin-bottom: 12px; }
+        input, select { width: 100%; box-sizing: border-box; background: #1c1c1f; border: 1px solid var(--border); color: #fff; padding: 18px; border-radius: 12px; font-size: 18px; font-family: inherit; }
+
+        /* --- СТАТИСТИКА --- */
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 60px 0; }
+        .stat-item { border-left: 3px solid var(--border); padding-left: 24px; transition: 0.3s; }
+        .stat-item:hover { border-color: var(--accent-orange); }
+        .stat-item b { font-size: 48px; color: #fff; display: block; }
+        .stat-item span { font-size: 16px; color: var(--text-muted); text-transform: uppercase; font-weight: 600; }
+
+        /* --- ТЕХНОЛОГИИ (СВЕТЛЫЙ БЛОК) --- */
+        .tech-section { background: var(--bg-light); color: var(--text-dark); padding: 120px 0; border-radius: 60px 60px 0 0; }
+        .tech-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; margin-top: 60px; }
+        .tech-card { position: relative; padding: 32px; border-radius: 20px; transition: 0.3s; background: rgba(0,0,0,0.03); }
+        .tech-card::before { content: ""; position: absolute; top: 0; left: 0; width: 0; height: 4px; background: var(--grad); transition: 0.4s; }
+        .tech-card:hover::before { width: 100%; }
+        .tech-num { color: var(--accent-orange); font-weight: 900; font-size: 40px; display: block; margin-bottom: 16px; }
+
+        /* --- УСЛУГИ (БЕЛЫЕ КАРТОЧКИ) --- */
+        .services-section {
+            background: var(--bg-dark); /* Возвращаем темный фон */
+            color: var(--text-main);
+            padding: 120px 0;
+            /* Закругление углов */
+            border-radius: 60px 60px 0 0;
+            /* Наслоение на предыдущий блок */
+            margin-top: -60px; 
+            position: relative;
+            z-index: 10;
+            border-top: 1px solid var(--border); /* Легкая граница, чтобы подчеркнуть стык */
+        }
+
+        /* Возвращаем белый цвет заголовкам внутри */
+        .services-section h2 {
+            color: #fff;
+        }
+
+        .services-section h2::after {
+            background: var(--grad); /* Возвращаем оранжевую черточку */
+        }
+
+        /* Настройка карточек для темного фона (если они были белыми) */
+        .services-section .service-card {
+            background: var(--bg-card);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+        }
+
+        .services-section .service-card h4 {
+            color: #000000;
+        }
+
+        .services-section .service-card p {
+            color: var(--text-muted);
+        }
+
+
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 64px; }
+        .service-card { background: #fff; color: #000; padding: 56px 40px; border-radius: 32px; transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); border: 2px solid transparent; }
+        .service-card:hover { transform: translateY(-20px); border-color: var(--accent-orange); box-shadow: 0 40px 80px rgba(0,0,0,0.3); }
+        .service-card span { font-size: 64px; display: block; margin-bottom: 32px; }
+
+        /* --- ПАРТНЕРЫ --- */
+        .partners-section { 
+            padding: 100px 0 0; /* Верхний отступ 100px, по бокам 0, нижний 0 */
+            border-top: 1px solid var(--border); 
+        }
+
+
+        .partners-overflow {
+            width: 100%;
+            overflow: hidden;
+            padding: 40px 0; /* Увеличили отступ от заголовка */
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .partners-grid {
+            display: flex;
+            align-items: center;
+            gap: 100px; /* Расстояние между брендами */
+            width: max-content;
+            animation: marquee 30s linear infinite;
+        }
+
+        /* Остановка при наведении для удобства чтения */
+        .partners-overflow:hover .partners-grid {
+            animation-play-state: paused;
+        }
+
+        .partners-grid div {
+            font-weight: 900;
+            font-size: 32px; /* Чуть увеличили размер для солидности */
+            color: #fff;
+            white-space: nowrap;
+            opacity: 0.4;
+            transition: 0.3s;
+            letter-spacing: 0.1em;
+        }
+
+        .partners-grid div:hover {
+            opacity: 1;
+            color: var(--accent-orange);
+            transform: scale(1.1);
+        }
+
+        /* Ключевые кадры для бесконечного движения */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } /* Сдвигаем на половину длины дублированного списка */
+        }
+
+        /* Плавное затухание по бокам (эффект исчезновения) */
+        .partners-overflow::before, .partners-overflow::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 150px;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .partners-overflow::before {
+            left: 0;
+            background: linear-gradient(to right, var(--bg-dark), transparent);
+        }
+        .partners-overflow::after {
+            right: 0;
+            background: linear-gradient(to left, var(--bg-dark), transparent);
+        }
+
+
+        /* --- ГЕОГРАФИЯ (СЕТКА 3 КОЛОНКИ) --- */
+        .geo-block { background: rgba(255,255,255,0.03); border: 1px solid var(--border); padding: 80px 0; border-radius: 48px; margin: 60px 0; text-align: center; }
+        .geo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; margin-top: 48px; }
+        .geo-val {
+            color: var(--accent-orange);
+            font-size: 40px; /* Установили 40px */
+            font-weight: 800;
+            display: block;
+            margin-bottom: 12px;
+            line-height: 1.1; /* Плотно прижимаем строку к строке при переносе */
+        }
+
+        /* --- FAQ --- */
+            .faq-item {
+    border-bottom: 1px solid var(--border);
+    padding: 30px 0;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Плавность для всех изменений */
+    position: relative;
+}
+
+/* Эффект при наведении на весь блок */
+.faq-item:hover {
+    padding-left: 15px; /* Легкое смещение вправо */
+}
+
+.faq-item:hover .faq-question span {
+    color: var(--accent-orange); /* Текст становится оранжевым */
+}
+
+.faq-item:hover .faq-plus {
+    transform: scale(1.2); /* Плюс немного увеличивается */
+    text-shadow: 0 0 15px var(--accent-glow); /* Добавляем неоновое свечение */
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--text-muted);
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Стили для активного (раскрытого) состояния */
+.faq-item.active {
+    background: rgba(255, 107, 0, 0.03); /* Очень легкий оранжевый фон у раскрытого вопроса */
+    padding-left: 15px;
+    border-bottom-color: var(--accent-orange);
+}
+
+.faq-item.active .faq-answer {
+    max-height: 300px;
+    margin-top: 20px;
+    padding-bottom: 10px;
+}
+
+.faq-item.active .faq-question {
+    color: var(--accent-orange);
+}
+
+.faq-plus {
+    transition: all 0.3s ease;
+    font-size: 32px;
+    color: var(--accent-orange);
+    display: inline-block;
+}
+
+
+                .faq-item:hover { color: var(--accent-orange); padding-left: 20px; }
+
+                /* --- FOOTER --- */
+                footer { background: #050506; padding: 100px 0 60px; border-top: 1px solid var(--border); }
+                .footer-grid { 
+            display: grid; 
+            grid-template-columns: 2fr 1fr; /* Было 2fr 1fr 1fr */
+            gap: 64px; 
+        }
+
+        @media (max-width: 900px) {
+            .footer-grid, .calc-grid, .stats-grid, .tech-grid, .services-grid, .geo-grid { grid-template-columns: 1fr; }
+        }
+
+
+
+        /* Стили СФЕРЫ /  Контейнер для относительного позиционирования шара */
+       /* Контейнер-обертка */
+    .geo-section-wrapper {
+        position: relative;
+        padding: 100px 0;
+        /* Создаем новый контекст наслоения, чтобы z-index: -1 не уходил за body */
+        isolation: isolate; 
+        overflow: visible;
+    }
+
+    /* Насыщенный светящийся шар */
+    .geo-glow-sphere {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        /* Сдвигаем строго в центр */
+        transform: translate(-50%, -50%);
+        
+        /* Увеличиваем физический размер */
+        width: 900px;  
+        height: 900px;
+        
+        /* Делаем очень мощный градиент */
+        background: radial-gradient(circle, 
+            rgba(255, 107, 0, 0.9) 0%, 
+            rgba(255, 107, 0, 0.5) 40%, 
+            rgba(255, 107, 0, 0) 70%
+        );
+        
+        border-radius: 50%;
+        filter: blur(50px); /* Уменьшил блюр, чтобы ядро было четче */
+        
+        /* Слой -1 относительно wrapper, но выше фона body */
+        z-index: -1; 
+        
+        pointer-events: none;
+        opacity: 0.8; /* Высокая прозрачность */
+        
+        /* Анимация */
+        animation: sphere-pulse 8s infinite ease-in-out;
+    }
+
+    /* Сам блок с контентом */
+    .geo-block {
+        position: relative;
+        z-index: 2;
+        background: rgb(24 24 24 / 35%) !important;
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 107, 0, 0.4);
+        box-shadow: 0 0 50px rgba(255, 107, 0, 0.1);
+    }
+
+    @keyframes sphere-pulse {
+        0%, 100% { 
+            transform: translate(-50%, -50%) scale(1); 
+            opacity: 0.6; 
+        }
+        50% { 
+            transform: translate(-50%, -50%) scale(1.15); 
+            opacity: 0.9; 
+        }
+    }
+ 
+        /* Акцентная плашка для блока услуг */
+        .heavy-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(255, 107, 0, 0.1);
+            border: 1px solid var(--accent-orange);
+            border-radius: 100px;
+            color: var(--accent-orange);
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Контейнер для центрирования шапки секции */
+        .services-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        /* БЛОК ОБРАТНОЙ СВЯЗИ */
+        .contact-section {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 40px;
+            padding: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Декоративное свечение в углу формы */
+        .contact-wrapper::after {
+            content: "";
+            position: absolute;
+            bottom: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: var(--accent-glow);
+            filter: blur(100px);
+            z-index: 0;
+        }
+
+        .contact-info h3 {
+            text-align: left;
+            margin-top: 0;
+            margin-bottom: 24px;
+            font-size: 40px;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -0.02em;
+            position: relative;
+            display: block;
+            text-transform: uppercase;
+        }
+
+        /* Специфическая черточка для h3 в контактах */
+        .contact-info h3::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--grad);
+            margin: 16px 0 0; /* Сдвиг влево */
+            border-radius: 2px;
+        }
+
+        .contact-info p {
+            text-align: left;
+            margin: 0 0 40px;
+            font-size: 20px;
+            color: var(--text-muted);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--accent-orange);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            letter-spacing: 0.1em;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            background: #1c1c1f;
+            border: 1px solid var(--border);
+            padding: 16px;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-orange);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        .contact-form {
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 900px) {
+            .contact-wrapper { grid-template-columns: 1fr; padding: 32px; }
+        }
+
+
+        /*Созвездия*/
+        /* Контейнер для звездного фона внутри секции */
+        .constellation-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+/* Сами звезды */
+.star {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    opacity: 0;
+    /* Усиливаем свечение вокруг каждой звезды */
+    box-shadow: 0 0 6px 1px rgba(255, 255, 255, 0.9); 
+    animation: twinkle infinite ease-in-out;
+}
+
+/* Настраиваем яркость мерцания */
+@keyframes twinkle {
+    0%, 100% { 
+        opacity: 0.2; /* Минимальная яркость (звезда не исчезает совсем) */
+        transform: scale(0.9); 
+    }
+    50% { 
+        opacity: 0.9; /* Максимальная яркость в пике мерцания */
+        transform: scale(1.2); 
+        box-shadow: 0 0 10px 2px rgba(255, 255, 255, 1); /* Вспышка свечения */
+    }
+}
+
+
+/* Делаем секцию услуг относительной для позиционирования звезд */
+.services-section {
+    position: relative;
+    overflow: hidden; /* Чтобы звезды не вылетали за границы */
+}
+
+/* Поднимаем контент над звездами */
+.services-section .container {
+    position: relative;
+    z-index: 2;
+}
