@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIRIUS CARGO | Ваш главный ориентир в логистике</title>
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="sirius-3-style.css">
+</head>
+<body>
+
+    <header class="container">
+        <a href="#" class="logo">SIRIUS <span>CARGO</span></a>
+        <div style="display: flex; align-items: center; gap: 40px;">
+            <div class="status-tag">
+                <span class="dot"></span> 
+                ТЮМЕНЬ <span class="coordinates">57.1522° N, 65.5272° E</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero container">
+            <h1>
+                <span class="h1-brand-group">
+                    <span class="h1-sirius">SIRIUS</span> 
+                    <span class="h1-cargo">CARGO</span>
+                </span> 
+                <span class="h1-slogan">— ваш главный ориентир в логистике</span>
+            </h1>
+            <p>Перевозим грузы по всей России с точностью до минуты.<br> Находим решение, когда другие ищут машины.</p>
+            
+            <div class="main-card">
+                <div class="calc-grid">
+                    <div class="input-box"><label>Откуда</label><input type="text" value="Москва"></div>
+                    <div class="input-box"><label>Куда</label><input type="text" value="Владивосток"></div>
+                    <div class="input-box"><label>Вес (т)</label><input type="number" value="20"></div>
+                    <div class="input-box"><label>Кузов</label><select><option>Еврофура (Тент)</option><option>Рефрижератор</option></select></div>
+                </div>
+                <div class="price-row" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); padding-top: 40px; flex-wrap: wrap; gap: 32px;">
+                    <div><span style="color: var(--text-muted); font-size: 16px; font-weight: 600;">ОРИЕНТИРОВОЧНАЯ СТОИМОСТЬ</span><div style="font-size: 48px; font-weight: 800; color: #fff;">9 000 ₽</div></div>
+                    <button class="btn-main">Забронировать машину</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STATS -->
+        <div class="container stats-grid">
+            <div class="stat-item"><b>150+</b><span>Собственных авто</span></div>
+            <div class="stat-item"><b>12 лет</b><span>Опыт на рынке</span></div>
+            <div class="stat-item"><b style="color: var(--accent-orange);">99.8%</b><span>Точность доставки</span></div>
+            <div class="stat-item"><b>24/7</b><span>Поддержка клиентов</span></div>
+        </div>
+
+        <!-- TECH -->
+        <section class="tech-section">
+            <div class="container">
+                <h2>Технология доставки 2026</h2>
+                <p style="font-size: 22px; color: #555; max-width: 800px;">Мы внедрили цифровые стандарты SIRIUS CARGO, чтобы вы не тратили время на звонки.</p>
+                <div class="tech-grid">
+                    <div class="tech-card"><span class="tech-num">01</span><h4>Мгновенная заявка</h4><p>Наша CRM обрабатывает запрос и подбирает авто за 180 секунд.</p></div>
+                    <div class="tech-card"><span class="tech-num">02</span><h4>Электронная ТРН</h4><p>Никакой почты. Документы приходят в ЭДО сразу после загрузки.</p></div>
+                    <div class="tech-card"><span class="tech-num">03</span><h4>Контроль пути</h4><p>Датчики GPS, открытия дверей и температуры в реальном времени.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section class="services-section" id="services">
+    <!-- Холст для звездного неба -->
+    <canvas id="constellationCanvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;"></canvas>
+
+            <div class="container" style="position: relative; z-index: 2;">
+                <div class="services-header">
+                    <div class="heavy-badge">Экспертиза в Heavy Cargo</div>
+                    <h2>Сложная логистика — наш профиль</h2>
+                    <p>Мы беремся за задачи, от которых отказываются другие: от магистральных труб для нефтегазового сектора до высокотехнологичных производственных линий.</p>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card" style="background: var(--bg-light);">
+                        <span>🏗️</span>
+                        <h4>Негабарит и ТЭК</h4>
+                        <p>Специализированная перевозка труб большого диаметра, буровых установок и спецтехники. Полное сопровождение и спецразрешения.</p>
+                    </div>
+
+                    <div class="service-card" style="background: var(--bg-light);">
+                        <span>⚙️</span>
+                        <h4>Промышленный сектор</h4>
+                        <p>Транспортировка дорогостоящих станков, серверных стоек и медицинских систем. Гарантируем сохранность электроники.</p>
+                    </div>
+
+                    <div class="service-card" style="background: var(--bg-light);">
+                        <span>🛒</span>
+                        <h4>Ритейл и FMCG</h4>
+                        <p>Работаем со всеми РЦ федеральных торговых сетей. Знаем специфику «Магнита», «X5 Group» и «Ozon».</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PARTNERS -->
+        <section class="container partners-section">
+            <h2>Нам доверяют лидеры</h2>
+            
+            <div class="partners-overflow">
+                <div class="partners-grid">
+                    <!-- Основной список -->
+                    <div>ГАЗПРОМ</div><div>X5 GROUP</div><div>СИБУР</div>
+                    <div>OZON</div><div>МАГНИТ</div><div>МИРАТОРГ</div>
+                    
+                    <!-- Дубликат списка для эффекта бесшовности -->
+                    <div>ГАЗПРОМ</div><div>X5 GROUP</div><div>СИБУР</div>
+                    <div>OZON</div><div>МАГНИТ</div><div>МИРАТОРГ</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GEO -->
+        <section class="geo-section-wrapper">
+            <div class="geo-glow-sphere"></div>
+
+            <div class="container">
+                <div class="geo-block">
+                    <div class="container">
+                        <h2>География перевозок</h2>
+                        <p style="font-size: 20px; color: var(--text-muted);">Доставка грузов по всей территории России и странам СНГ.</p>
+                        <div class="geo-grid">
+                            <div>
+                                <span class="geo-val">85+ <br>регионов</span>
+                                <span style="font-weight: 600; opacity: 0.7;">ОХВАТ ПО РФ</span>
+                            </div>
+                            <div>
+                                <span class="geo-val">500+ <br>рейсов</span>
+                                <span style="font-weight: 600; opacity: 0.7;">РЕГУЛЯРНЫЕ МАРШРУТЫ</span>
+                            </div>
+                            <div>
+                                <span class="geo-val">100% <br>гарантии</span>
+                                <span style="font-weight: 600; opacity: 0.7;">ГАРАНТИЯ ДОСТАВКИ</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="container" style="padding-bottom: 120px;">
+            <h2>Частые вопросы</h2>
+            
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">
+                    <span>Как застрахован мой груз?</span>
+                    <span class="faq-plus">+</span>
+                </div>
+                <div class="faq-answer">
+                    Все перевозки SIRIUS CARGO застрахованы на сумму до 10 000 000 ₽ по умолчанию. Для дорогостоящего оборудования и труб ТЭК возможно расширение страхового покрытия до полной инвойсной стоимости.
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">
+                    <span>Работаете ли вы с НДС?</span>
+                    <span class="faq-plus">+</span>
+                </div>
+                <div class="faq-answer">
+                    Да, мы работаем по общей системе налогообложения (ОСНО) с выделением НДС 20%. Все закрывающие документы предоставляются через системы ЭДО (Диадок, СБИС) в день выгрузки.
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">
+                    <span>Как быстро вы подаете машину под негабарит?</span>
+                    <span class="faq-plus">+</span>
+                </div>
+                <div class="faq-answer">
+                    Благодаря собственному парку тралов и трубовозов, подача под погрузку в Тюменской области и ХМАО осуществляется в течение 24 часов после подписания заявки.
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">
+                    <span>Оказываете ли вы услуги сопровождения?</span>
+                    <span class="faq-plus">+</span>
+                </div>
+                <div class="faq-answer">
+                    Да, при перевозке крупногабаритных грузов мы берем на себя получение разрешений в ГИБДД и, при необходимости, обеспечиваем машины прикрытия с проблесковыми маячками.
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">
+                    <span>Есть ли у вас температурный режим?</span>
+                    <span class="faq-plus">+</span>
+                </div>
+                <div class="faq-answer">
+                    Да, в нашем парке есть современные рефрижераторы с регистраторами температуры. Мы поставляем оборудование и химические компоненты, требующие строгого соблюдения режима от -20°C до +20°C.
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">
+                    <span>Как я могу отследить местоположение груза?</span>
+                    <span class="faq-plus">+</span>
+                </div>
+                <div class="faq-answer">
+                    Каждое транспортное средство оснащено датчиками ГЛОНАСС. Вы получаете ссылку на мониторинг в реальном времени или ежедневные отчеты от персонального менеджера.
+                </div>
+            </div>
+        </section>
+
+
+        <!-- CONTACT SECTION -->
+        <section class="contact-section container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Запросить детальный расчет</h3>
+                    <p>Получите коммерческое предложение на перевозку любой сложности в течение 15 минут. Наш эксперт предложит оптимальный маршрут и тип транспорта.</p>
+                    
+                    <div style="margin-top: 60px;">
+                        <div style="color: var(--accent-orange); font-weight: 800; font-size: 14px; margin-bottom: 10px;">ГОРЯЧАЯ ЛИНИЯ</div>
+                        <div style="font-size: 32px; font-weight: 800;">8 (800) 555-35-35</div>
+                        <p style="font-size: 16px; margin-top: 10px;">Диспетчерская служба 24/7 по всей России</p>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <div class="form-group">
+                        <label>Контактные данные</label>
+                        <input type="text" id="client_data" placeholder="Имя и телефон для связи">
+                    </div>
+                    <div class="form-group">
+                        <label>Детали перевозки</label>
+                        <textarea id="cargo_info" rows="4" placeholder="Тип груза, вес, маршрут (например: Трубы 1420мм, Тюмень — Сургут)"></textarea>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                        <button onclick="sendToMail()" class="btn-main" style="font-size: 16px; padding: 18px 10px;">
+                            📧 Почта
+                        </button>
+                        <button onclick="sendToTG()" class="btn-main" style="background: transparent; border: 2px solid #0088cc; color: #0088cc; font-size: 16px; padding: 18px 10px;">
+                            ✈️ Telegram
+                        </button>
+                    </div>
+                    
+                    <p style="font-size: 12px; color: var(--text-muted); margin-top: 20px; text-align: center;">
+                        Выберите удобный способ отправки. Данные будут сформированы автоматически.
+                    </p>            
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+    <div class="container footer-grid">
+        <div>
+            <div class="logo" style="margin-bottom: 32px;">SIRIUS <span>CARGO</span></div>
+            <p style="font-size: 16px; color: var(--text-muted); line-height: 1.8;">
+                ООО «СИРИУС КАРГО»<br>
+                ИНН 7700000000 | ОГРН 123456789<br><br>
+                © 2026. Ваш надежный ориентир.
+            </p>
+        </div>
+        <div>
+            <h4 style="color: var(--accent-orange); font-size: 14px; text-transform: uppercase; margin-bottom: 24px;">Контакты</h4>
+            <p style="font-size: 18px; margin-bottom: 32px;">г. Москва, БЦ «Сити», офис 504</p>
+            <a href="tel:+78005553535" class="contact-link" style="color: #fff; text-decoration: none; font-size: 24px; font-weight: 700; display: block; margin-bottom: 10px;">+7 (800) 555-35-35</a>
+            <p style="color: var(--text-muted); font-size: 16px;">info@siriuscargo.ru</p>
+        </div>
+    </div>
+</footer>
+<script src="sirius-3-script.js"></script>
+</body>
+</html>
